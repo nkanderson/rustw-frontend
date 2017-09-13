@@ -27,18 +27,19 @@ export function runBuild(dispatch) {
         true,
     );
 
-    let updateSource = new EventSource(utils.make_url("build_updates"));
-    updateSource.addEventListener("error", function(event) {
-        const error = makeError(JSON.parse(event.data));
-        dispatch(actions.setError(error));
-    }, false);
-    updateSource.addEventListener("message", function(event) {
-        const data = JSON.parse(event.data);
-        dispatch(actions.addMessage(data));
-    }, false);
-    updateSource.addEventListener("close", function(event) {
-        updateSource.close();
-    }, false);
+    // TODO: Remove build & error display
+    // let updateSource = new EventSource(utils.make_url("build_updates"));
+    // updateSource.addEventListener("error", function(event) {
+    //     const error = makeError(JSON.parse(event.data));
+    //     dispatch(actions.setError(error));
+    // }, false);
+    // updateSource.addEventListener("message", function(event) {
+    //     const data = JSON.parse(event.data);
+    //     dispatch(actions.addMessage(data));
+    // }, false);
+    // updateSource.addEventListener("close", function(event) {
+    //     updateSource.close();
+    // }, false);
 }
 
 function pull_data(key, dispatch) {

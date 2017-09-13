@@ -9,7 +9,8 @@
 import * as actions from './actions';
 
 export function make_url(suffix) {
-    return '/' + CONFIG.demo_mode_root_path + suffix;
+    // TODO: Add API base URL to config
+    return 'http://localhost:3000/' + CONFIG.demo_mode_root_path + suffix;
 }
 
 export function highlight_spans(highlight, line_number_prefix, src_line_prefix, css_class) {
@@ -63,7 +64,7 @@ export function request(dispatch, urlStr, success, errStr, suppressMessages) {
     const self = this;
     $.ajax({
         url: self.make_url(urlStr),
-        type: 'POST',
+        type: 'GET',
         dataType: 'JSON',
         cache: false
     })

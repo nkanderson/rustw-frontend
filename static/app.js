@@ -30,7 +30,7 @@ class RustwApp extends React.Component {
         $("#measure").hide();
 
         // history.replaceState(MAIN_PAGE_STATE, "");
-        // window.onpopstate = onPopState;    
+        // window.onpopstate = onPopState;
     }
 
     componentDidMount() {
@@ -39,6 +39,21 @@ class RustwApp extends React.Component {
             url: "/config",
             success: (data) => {
                 CONFIG = data;
+            },
+            error: () => {
+              CONFIG = {
+                  "build_command": "cargo check",
+                  "edit_command": "",
+                  "unstable_features": false,
+                  "port": 7878,
+                  "demo_mode": false,
+                  "demo_mode_root_path": "",
+                  "context_lines": 2,
+                  "build_on_load": true,
+                  "source_directory": "src",
+                  "save_analysis": true,
+                  "vcs_link": ""
+              };
             },
             async: false,
         });

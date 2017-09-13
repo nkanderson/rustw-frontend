@@ -1,7 +1,10 @@
+const path = require('path');
+
 module.exports = {
   entry: "./static/rustw.js",
   output: {
-    filename: "./static/rustw.out.js",
+    filename: "rustw.out.js",
+    path: path.resolve(__dirname, 'static'),
     libraryTarget: 'var',
     library: 'Rustw'
   },
@@ -13,5 +16,11 @@ module.exports = {
       loader: 'babel-loader'
     }]
   },
-  devtool: 'source-map'
+  devtool: 'source-map',
+  devServer: {
+    contentBase: './',
+    publicPath: "/static/",
+    port: 9000,
+    watchContentBase: true
+  },
 }
