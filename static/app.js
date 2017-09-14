@@ -13,6 +13,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { rustwReducer, Page } from './reducers';
 import * as actions from './actions';
+import styles from './rustw.css';
 
 import * as utils from './utils';
 import { TopBarController } from './topbar';
