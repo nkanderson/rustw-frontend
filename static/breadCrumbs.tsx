@@ -6,9 +6,9 @@
 // option. This file may not be copied, modified, or distributed
 // except according to those terms.
 
-import React from 'react';
+import * as React from 'react';
 
-export function BreadCrumbs(props) {
+export function BreadCrumbs(props: any) {
     // TODO[ES6]: use props.path.map
     let crumbs = [];
     let path = "";
@@ -18,7 +18,7 @@ export function BreadCrumbs(props) {
         }
         path += p;
         const pathCopy = path;
-        const onClick = (e) => props.getSource(pathCopy);
+        const onClick = () => props.getSource(pathCopy);
         crumbs.push(<span key={path}>> <span className="link_breadcrumb" onClick={onClick}>{p}</span></span>);
     }
     return <div id="div_dir_path">
