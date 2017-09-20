@@ -10,7 +10,13 @@ import * as React from 'react';
 
 import { BreadCrumbs } from './breadCrumbs';
 
-export function DirView(props: any) {
+export interface DirViewProps {
+    files: Array<any>,
+    file: string,
+    getSource: (path :string) => any
+}
+
+export const DirView: React.SFC<DirViewProps> = (props) => {
     // TODO[ES6]: use props.map
     let files = [];
     for (const f of props.files) {

@@ -8,7 +8,12 @@
 
 import * as React from 'react';
 
-export function BreadCrumbs(props: any) {
+export interface BreadCrumbProps {
+    path: Array<string>,
+    getSource: (path :string) => any
+}
+
+export const BreadCrumbs: React.SFC<BreadCrumbProps> = (props) => {
     // TODO[ES6]: use props.path.map
     let crumbs = [];
     let path = "";
