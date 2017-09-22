@@ -27,6 +27,27 @@
     src: local('Fira Sans Medium'), url("/static/fonts/FiraSans-Medium.woff") format('woff');
 }
 
+@font-face {
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Fira Code Light'), url("/static/fonts/FiraCode-Light.woff") format('woff');
+}
+@font-face {
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Fira Code'), url("/static/fonts/FiraCode-Regular.woff") format('woff');
+}
+@font-face {
+    font-family: 'Fira Code';
+    font-style: normal;
+    font-weight: 500;
+    src: local('Fira Code Medium'), url("/static/fonts/FiraCode-Medium.woff") format('woff');
+}
+
+
+
 body {
     font-family: 'Fira Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     margin: 0;
@@ -243,13 +264,13 @@ a.issue_link:active, a.link  { color: black }
 .span_loc {
     display: inline-block;
     margin-left: 10px;
-    font-family: monospace;
+    font-family: 'Fira Code';
     text-decoration: underline;
     cursor: pointer;
     vertical-align: top;
 }
 .div_all_span_src {
-    font-family: monospace;
+    font-family: 'Fira Code';
     white-space: nowrap;
 }
 .div_children .div_all_span_src {
@@ -331,7 +352,7 @@ span#measure {
     margin: 0;
     border: 0;
     white-space: pre;
-    font-family: monospace;
+    font-family: 'Fira Code';
     font-size: small;
 }
 
@@ -342,7 +363,7 @@ span#measure {
 }
 
 #div_src_contents {
-    font-family: monospace;
+    font-family: 'Fira Code';
     margin-top: 2px;
     margin-left: -15px;
     margin-bottom: 20px;
