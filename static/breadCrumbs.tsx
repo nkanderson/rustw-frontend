@@ -14,18 +14,16 @@ export interface BreadCrumbProps {
 }
 
 export const BreadCrumbs: React.SFC<BreadCrumbProps> = (props) => {
-    // TODO[ES6]: use props.path.map
-    let crumbs = [];
-    let path = "";
-    for (const p of props.path) {
-        if (path.length > 0) {
-            path += '/';
-        }
-        path += p;
-        const pathCopy = path;
-        const onClick = () => props.getSource(pathCopy);
-        crumbs.push(<span key={path}>> <span className="link_breadcrumb" onClick={onClick}>{p}</span></span>);
-    }
+    let path = "",
+        crumbs = props.path.map((p: string) => {
+            if (path.length > 0) {
+                path += '/';
+            }
+            path += p;
+            const pathCopy = path;
+            const onClick = () => props.getSource(pathCopy);
+            return (<span key={path}>> <span className="link_breadcrumb" onClick={onClick}>{p}</span></span>);
+        });
     return <div id="div_dir_path">
         {crumbs}
     </div>;
