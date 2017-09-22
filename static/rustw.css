@@ -161,7 +161,7 @@ html {
     padding-top: 70px;
     padding-left: 20px;
     padding-bottom: 10px;
-    background-color: #f8f8f0;
+    background-color: #fafafa;
     min-height: 100%;
     font-size: small;
 }
@@ -417,22 +417,22 @@ span#measure {
 
 /* Syntax highlighting */
 #div_src_view .kw { color: #8959A8; }
-#div_src_view .kw-2, #div_src_view .prelude-ty { color: #4271AE; }
-#div_src_view .number, #div_src_view .string { color: #718C00; }
+#div_src_view .kw-2, #div_src_view .prelude-ty { color: #385D9A; }
+#div_src_view .number, #div_src_view .string { color: #587300; }
 #div_src_view .boolval, #div_src_view .prelude-val,
 #div_src_view .attribute, #div_src_view .attribute .ident { color: #C82829; }
-#div_src_view .macro, #div_src_view .macro-nonterminal { color: #3E999F; }
-#div_src_view .lifetime { color: #B76514; }
-#div_src_view .comment, #div_src_view .doccomment { color: #808080; }
+#div_src_view .macro, #div_src_view .macro-nonterminal { color: #167177; }
+#div_src_view .lifetime { color: #A35100; }
+#div_src_view .comment, #div_src_view .doccomment { color: #707070; }
 
 .div_all_span_src .kw { color: #8959A8; }
-.div_all_span_src .kw-2, .div_all_span_src .prelude-ty { color: #4271AE; }
-.div_all_span_src .number, .div_all_span_src .string { color: #718C00; }
+.div_all_span_src .kw-2, .div_all_span_src .prelude-ty { color: #385D9A; }
+.div_all_span_src .number, .div_all_span_src .string { color: #587300; }
 .div_all_span_src .boolval, .div_all_span_src .prelude-val,
 .div_all_span_src .attribute, .div_all_span_src .attribute .ident { color: #C82829; }
-.div_all_span_src .macro, .div_all_span_src .macro-nonterminal { color: #3E999F; }
-.div_all_span_src .lifetime { color: #B76514; }
-.div_all_span_src .comment, .div_all_span_src .doccomment { color: #808080; }
+.div_all_span_src .macro, .div_all_span_src .macro-nonterminal { color: #167177; }
+.div_all_span_src .lifetime { color: #A35100; }
+.div_all_span_src .comment, .div_all_span_src .doccomment { color: #707070; }
 
 .src_link {
     text-decoration: underline;
