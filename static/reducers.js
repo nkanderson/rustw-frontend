@@ -32,8 +32,6 @@ export const rustwReducer = combineReducers({
 
 function page(state = { type: Page.START }, action) {
     switch (action.type) {
-        case SHOW_ERROR:
-        return { type: Page.INTERNAL_ERROR };
         case SHOW_LOADING:
             return { type: Page.LOADING };
         case SHOW_SEARCH:
