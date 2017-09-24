@@ -113,16 +113,13 @@ html {
     width: 100%;
     background-color: white;
     opacity: 1;
-    position: fixed;
     z-index: 10;
 }
 #div_header {
     width: 100%;
+    box-sizing: border-box;
     background-color: white;
-    opacity: 1;
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-bottom: 10px;
+    padding: 10px;
 }
 #div_border {
     width: 100%;
@@ -158,9 +155,6 @@ html {
 }
 #div_main {
     box-sizing: border-box;
-    padding-top: 70px;
-    padding-left: 20px;
-    padding-bottom: 10px;
     background-color: #fafafa;
     min-height: 100%;
     font-size: small;
@@ -323,7 +317,7 @@ span.err_colon {
 }
 
 .div_entry {
-    margin: 2px;
+    margin: 0.5em;
 }
 .div_dir_entry {
     display: inline-block;
@@ -352,7 +346,7 @@ span#measure {
     margin: 0;
     border: 0;
     white-space: pre;
-    font-family: 'Fira Code';
+    font-family: monospace, 'Fira Code';
     font-size: small;
 }
 
@@ -392,6 +386,9 @@ span#measure {
     z-index: 1;
     width: -moz-max-content;
 }
+.div_src_line, .div_src_line_number{
+    padding: 0.15em 0.5em;
+}
 .src_highlight {
     font-weight: bold;
 }
@@ -402,6 +399,7 @@ span#measure {
     background-color: #d5f3b5;
 }
 .floating_highlight {
+    margin-left: 1em;
     display: block;
     position: absolute;
 }
@@ -593,4 +591,14 @@ span#measure {
 
 .hand_cursor {
     cursor: pointer;
+}
+
+#div_dir_view, #div_src_view, #div_build_results, #div_loading, #div_search_results {
+    position: relative;
+    padding: 0.5em 1em;
+}
+
+#div_dir_path {
+    padding: 10px 20px;
+    background-color: #CCCCFF;
 }
