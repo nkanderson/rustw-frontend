@@ -17,8 +17,6 @@ import styles from './rustw.css';
 
 import * as utils from './utils';
 import { TopBarController } from './topbar';
-import { ResultsController, Error } from "./errors";
-import { ErrCodeController } from "./err_code";
 import { FindResults, SearchResults } from "./search";
 import { DirView } from './dirView';
 import { SourceViewController } from './srcView';
@@ -50,7 +48,7 @@ class RustwApp extends React.Component {
                   "demo_mode": false,
                   "demo_mode_root_path": "",
                   "context_lines": 2,
-                  "build_on_load": true,
+                  "build_on_load": false,
                   "source_directory": "src",
                   "save_analysis": true,
                   "vcs_link": ""
@@ -66,12 +64,6 @@ class RustwApp extends React.Component {
     render() {
         let divMain;
         switch (this.props.page.type) {
-            case Page.BUILD_RESULTS:
-                divMain = <ResultsController />;
-                break;
-            case Page.ERR_CODE:
-                divMain = <ErrCodeController />;
-                break;
             case Page.SEARCH:
                 divMain = <SearchResults defs={this.props.page.defs} refs={this.props.page.refs} />;
                 break;
