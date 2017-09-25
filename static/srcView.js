@@ -85,7 +85,7 @@ function view_in_vcs(target) {
     window.open(CONFIG.vcs_link.replace("$file", file_name).replace("$line", line_number), '_blank');
 }
 
-class SourceView extends React.Component {
+export class SourceView extends React.Component {
     constructor(props) {
         super(props);
         this.state = { refMenu: null };

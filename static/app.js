@@ -22,6 +22,18 @@ import { DirView } from './dirView';
 import { SourceViewController } from './srcView';
 import { Summary } from './summary';
 
+import {
+  HashRouter,
+  Route,
+  Redirect
+} from 'react-router-dom';
+
+import {
+  Home,
+  Search,
+  Source
+} from './pages';
+
 // TODOs in build
 
 class RustwApp extends React.Component {
@@ -116,9 +128,13 @@ let store = createStore(rustwReducer, applyMiddleware(thunk));
 
 export function renderApp() {
     ReactDOM.render(
-        <Provider store={store}>
-            <AppController />
-        </Provider>,
+      <HashRouter>
+        <div className="main">
+          <Route exact path="/" component={Home} />
+          <Route path="/search" component={Search} />
+          <Route path="/browse(/\w+\.?\w+)*" component={Source} />
+        </div>
+      </HashRouter>,
         document.getElementById('container')
     );
 }
