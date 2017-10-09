@@ -7,8 +7,10 @@
 // except according to those terms.
 
 import * as React from 'react';
+import qs from 'query-string';
 
 import { CodeBrowser } from './codeBrowser';
+import { SearchResults } from "./searchResults";
 
 const PageTemplate = ({children}) =>
   <div id="div_app">
@@ -20,16 +22,18 @@ const PageTemplate = ({children}) =>
 export const Home = () =>
   <PageTemplate>
     <section className="home">
-      [Home]
+      <CodeBrowser path="/browse/src" />
     </section>
   </PageTemplate>
 
-export const Search = () =>
-  <PageTemplate>
-    <section className="search">
-      [Search]
+export const Search = ({ location }) => {
+  const query = qs.parse(location.search).needle;
+  return <PageTemplate>
+    <section className="search" id="div_search_results">
+      <SearchResults query={query} />
     </section>
   </PageTemplate>
+}
 
 export const Source = ({match}) =>
   <PageTemplate>
