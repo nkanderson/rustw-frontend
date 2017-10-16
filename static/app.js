@@ -8,6 +8,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter } from 'react-router-dom';
 import { Provider, connect } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
@@ -16,23 +17,12 @@ import * as actions from './actions';
 import styles from './rustw.css';
 
 import * as utils from './utils';
+import { PageTemplate } from './pages';
 import { TopBarController } from './topbar';
 import { FindResults, SearchResults } from "./search";
 import { DirView } from './dirView';
 import { SourceViewController } from './srcView';
 import { Summary } from './summary';
-
-import {
-  HashRouter,
-  Route,
-  Redirect
-} from 'react-router-dom';
-
-import {
-  Home,
-  Search,
-  Source
-} from './pages';
 
 // TODOs in build
 
@@ -130,9 +120,7 @@ export function renderApp() {
     ReactDOM.render(
       <HashRouter>
         <div className="main">
-          <Route exact path="/" component={Home} />
-          <Route path="/search" component={Search} />
-          <Route path="/browse(/\w+\.?\w+)*" component={Source} />
+            <PageTemplate />
         </div>
       </HashRouter>,
         document.getElementById('container')

@@ -7,37 +7,37 @@
 // except according to those terms.
 
 import * as React from 'react';
+import { Route } from 'react-router-dom';
 import qs from 'query-string';
 
+import { TopBar } from './topbar';
 import { CodeBrowser } from './codeBrowser';
 import { SearchResults } from "./searchResults";
 
-const PageTemplate = ({children}) =>
-  <div id="div_app">
-      <div id="div_main">
-          {children}
-      </div>
+export const PageTemplate = () => {
+  return <div id="div_app">
+    <TopBar />
+    <div id="div_main">
+      <Route exact path="/" component={Home} />
+      <Route path="/search" component={Search} />
+      <Route path="/browse(/\w+\.?\w+)*" component={Source} />
+    </div>
   </div>
+}
 
 export const Home = () =>
-  <PageTemplate>
-    <section className="home">
-      <CodeBrowser path="/browse/src" />
-    </section>
-  </PageTemplate>
+  <section className="home">
+    <CodeBrowser path="/browse/src" />
+  </section>
 
 export const Search = ({ location }) => {
   const query = qs.parse(location.search).needle;
-  return <PageTemplate>
-    <section className="search" id="div_search_results">
+  return <section className="search" id="div_search_results">
       <SearchResults query={query} />
     </section>
-  </PageTemplate>
 }
 
 export const Source = ({match}) =>
-  <PageTemplate>
-    <section className="source">
-      <CodeBrowser path={match.params[0]} />
-    </section>
-  </PageTemplate>
+  <section className="source">
+    <CodeBrowser path={match.params[0]} />
+  </section>

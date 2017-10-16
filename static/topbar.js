@@ -7,17 +7,38 @@
 // except according to those terms.
 
 import React from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Menu, MenuHost } from './menus';
 import * as actions from './actions';
 
-class TopBar extends React.Component {
+export class TopBar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            redirect: false,
+            query: ''
+        }
+
+        this.redirectSearch = this.redirectSearch.bind(this);
+    }
+
+    redirectSearch(query) {
+        this.setState({ redirect: true, query: query });
+    }
+    
     render() {
+        if (this.state.redirect) {
+            return <Redirect push to={{
+                    pathname: '/search',
+                    search: '?needle=' + this.state.query
+                }}/>;
+        }
         return <div id="div_header_group">
               <div id="div_header">
-                <BrowseLink onClick={this.props.clickBrowseLink} />
-                <SearchBox getSearch={this.props.getSearch} />
+                <Link to="/browse/src">browse source</Link>
+                <SearchBox redirectSearch={this.redirectSearch} />
               </div>
             </div>;
     }
@@ -60,9 +81,13 @@ function SearchBox(props) {
     const enterKeyCode = 13;
     const onKeyPress = (e) => {
         if (e.which === enterKeyCode) {
-            props.getSearch(e.currentTarget.value);
+            props.redirectSearch(e.currentTarget.value);
         }
     };
-
-    return <input id="search_box" placeholder="identifier search" autoComplete="off" onKeyPress={onKeyPress}></input>;
+    return <input 
+                    id="search_box" 
+                    placeholder="identifier search" 
+                    autoComplete="off" 
+                    onKeyPress={onKeyPress}>
+            </input>;
 }
