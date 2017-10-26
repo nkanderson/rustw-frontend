@@ -10,34 +10,29 @@ import * as React from 'react';
 import { Route } from 'react-router-dom';
 import qs from 'query-string';
 
-import { TopBar } from './topbar';
+import { SidebarController } from './Sidebar';
 import { CodeBrowser } from './codeBrowser';
 import { SearchResults } from "./searchResults";
 
 export const PageTemplate = () => {
   return <div id="div_app">
-    <TopBar />
     <div id="div_main">
+      <SidebarController page="this.props.page" />
       <Route exact path="/" component={Home} />
       <Route path="/search" component={Search} />
-      <Route path="/browse(/\w+\.?\w+)*" component={Source} />
+      <Route path="/browse/*" component={Source} />
     </div>
   </div>
 }
 
 export const Home = () =>
-  <section className="home">
-    <CodeBrowser path="/browse/src" />
-  </section>
+  <CodeBrowser path="/browse/src" />
 
 export const Search = ({ location }) => {
   const query = qs.parse(location.search).needle;
-  return <section className="search" id="div_search_results">
-      <SearchResults query={query} />
-    </section>
+  return <SearchResults query={query} />
 }
 
 export const Source = ({match}) =>
-  <section className="source">
-    <CodeBrowser path={match.params[0]} />
-  </section>
+  <CodeBrowser path={match.params[0]} />
+  

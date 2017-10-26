@@ -118,11 +118,13 @@ let store = createStore(rustwReducer, applyMiddleware(thunk));
 
 export function renderApp() {
     ReactDOM.render(
-      <Router>
-        <div className="main">
-            <PageTemplate />
-        </div>
-      </Router>,
+        <Provider store={store}>
+            <Router>
+                <div className="main">
+                    <PageTemplate />
+                </div>
+            </Router>
+        </Provider>,
         document.getElementById('container')
     );
 }

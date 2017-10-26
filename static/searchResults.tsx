@@ -126,12 +126,12 @@ export class SearchResults extends React.Component<SearchResultsProps, SearchRes
         if (!this.state.defs) {
             return noResults();
         } else {
-            return (<div>
+            return (<section id="search_results" className="search-results">
                 <div className="div_search_title">Definitions:</div>
                 <ResultSet input={this.state.defs} kind="def"/>
                 <div className="div_search_title">References:</div>
                 <ResultSet input={this.state.refs} kind="ref"/>
-            </div>);
+            </section>);
         }
     }
 }

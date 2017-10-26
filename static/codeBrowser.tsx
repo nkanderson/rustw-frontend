@@ -48,9 +48,9 @@ export class CodeBrowser extends React.Component<Props, State> {
   }
 
   componentWillMount() {
-    const path = this.props.path;
+    const path = this.props.path;    
     $.ajax({
-        url: 'http://localhost:3000/src' + path, // json-server mock API base url
+        url: 'http://localhost:3000/src/' + path, // json-server mock API base url
         type: 'GET',
         dataType: 'JSON',
         cache: false
@@ -85,7 +85,7 @@ export class CodeBrowser extends React.Component<Props, State> {
   }
 
   render() {
-    const path = this.props.path.split('/');
+    const path = this.props.path.split('/');    
 
     if (this.state.isFile) {
       return <SourceView path={path} lines={this.state.lines} highlight={this.state.highlight} scrollTo={this.state.lineStart} />

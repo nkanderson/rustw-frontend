@@ -34,6 +34,8 @@ module.exports = {
     contentBase: './static',
     port: 9000,
     watchContentBase: true,
-    historyApiFallback: true
+    historyApiFallback: {
+      disableDotRule: true
+    }
   },
 }
