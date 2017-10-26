@@ -15,14 +15,12 @@ import { CodeBrowser } from './codeBrowser';
 import { SearchResults } from "./searchResults";
 
 export const PageTemplate = () => {
-  return <div id="div_app">
-    <div id="div_main">
+  return <div id="div_main">
       <SidebarController page="this.props.page" />
       <Route exact path="/" component={Home} />
       <Route path="/search" component={Search} />
       <Route path="/browse/*" component={Source} />
     </div>
-  </div>
 }
 
 export const Home = () =>

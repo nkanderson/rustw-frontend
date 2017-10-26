@@ -120,7 +120,7 @@ export function renderApp() {
     ReactDOM.render(
         <Provider store={store}>
             <Router>
-                <div className="main">
+                <div className="div_app">
                     <PageTemplate />
                 </div>
             </Router>
