@@ -31,9 +31,9 @@ module.exports = {
   },
   devtool: 'source-map',
   devServer: {
-    contentBase: './',
-    publicPath: "/static/",
+    contentBase: './static',
     port: 9000,
-    watchContentBase: true
+    watchContentBase: true,
+    historyApiFallback: true
   },
 }

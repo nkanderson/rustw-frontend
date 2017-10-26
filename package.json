@@ -2,7 +2,7 @@
   "scripts": {
     "build": "webpack",
     "lint:es": "eslint -c ./static/.eslintrc --ignore-path ./static/.eslintignore static/ || true",
-    "start:app": "webpack-dev-server --open-page 'static'",
+    "start:app": "webpack-dev-server --open",
     "start:api": "json-server --watch mock-data/db.json --routes routes.json"
   },
   "dependencies": {

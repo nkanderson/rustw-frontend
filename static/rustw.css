@@ -12,38 +12,38 @@
     font-family: 'Fira Sans';
     font-style: normal;
     font-weight: 300;
-    src: local('Fira Sans Light'), url("/static/fonts/FiraSans-Light.woff") format('woff');
+    src: local('Fira Sans Light'), url("/fonts/FiraSans-Light.woff") format('woff');
 }
 @font-face {
     font-family: 'Fira Sans';
     font-style: normal;
     font-weight: 400;
-    src: local('Fira Sans'), url("/static/fonts/FiraSans-Regular.woff") format('woff');
+    src: local('Fira Sans'), url("/fonts/FiraSans-Regular.woff") format('woff');
 }
 @font-face {
     font-family: 'Fira Sans';
     font-style: normal;
     font-weight: 500;
-    src: local('Fira Sans Medium'), url("/static/fonts/FiraSans-Medium.woff") format('woff');
+    src: local('Fira Sans Medium'), url("/fonts/FiraSans-Medium.woff") format('woff');
 }
 
 @font-face {
     font-family: 'Fira Code';
     font-style: normal;
     font-weight: 300;
-    src: local('Fira Code Light'), url("/static/fonts/FiraCode-Light.woff") format('woff');
+    src: local('Fira Code Light'), url("/fonts/FiraCode-Light.woff") format('woff');
 }
 @font-face {
     font-family: 'Fira Code';
     font-style: normal;
     font-weight: 400;
-    src: local('Fira Code'), url("/static/fonts/FiraCode-Regular.woff") format('woff');
+    src: local('Fira Code'), url("/fonts/FiraCode-Regular.woff") format('woff');
 }
 @font-face {
     font-family: 'Fira Code';
     font-style: normal;
     font-weight: 500;
-    src: local('Fira Code Medium'), url("/static/fonts/FiraCode-Medium.woff") format('woff');
+    src: local('Fira Code Medium'), url("/fonts/FiraCode-Medium.woff") format('woff');
 }
 
 
@@ -321,14 +321,14 @@ span.err_colon {
 }
 .div_dir_entry {
     display: inline-block;
-    background-image: url(/static/folder.png);
+    background-image: url(/folder.png);
     background-repeat: no-repeat;
     padding-left: 20px;
 }
 
 .div_file_entry {
     display: inline-block;
-    background-image: url(/static/file.png);
+    background-image: url(/file.png);
     background-repeat: no-repeat;
     padding-left: 20px;
 }

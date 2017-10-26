@@ -8,7 +8,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider, connect } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
@@ -118,11 +118,11 @@ let store = createStore(rustwReducer, applyMiddleware(thunk));
 
 export function renderApp() {
     ReactDOM.render(
-      <HashRouter>
+      <Router>
         <div className="main">
             <PageTemplate />
         </div>
-      </HashRouter>,
+      </Router>,
         document.getElementById('container')
     );
 }
