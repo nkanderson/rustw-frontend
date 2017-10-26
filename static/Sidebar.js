@@ -26,7 +26,6 @@ function Sidebar(props) {
             </TabList>
             <TabPanel className="div_sidebar_main">
                 <SearchPanelController/>
-                <div id="div_search_results"><SearchResults defs={props.page.defs} refs={props.page.refs} /></div> 
             </TabPanel>
             <TabPanel className="div_sidebar_main">
             </TabPanel>

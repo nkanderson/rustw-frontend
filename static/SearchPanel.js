@@ -7,6 +7,7 @@
 // except according to those terms.
 
 import React from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { FindResults, SearchResults } from "./search";
@@ -14,8 +15,32 @@ import { Menu, MenuHost } from './menus';
 import * as actions from './actions';
 
 class SearchPanel extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            redirect: false,
+            query: ''
+        }
+
+        this.redirectSearch = this.redirectSearch.bind(this);
+    }
+
+    redirectSearch(query) {
+        this.setState({ redirect: true, query: query });
+    }
+    
     render() {
-        return <SearchBox getSearch={this.props.getSearch} />
+        return (
+            <div>
+                <SearchBox redirectSearch={this.redirectSearch} />
+                {this.state.redirect &&
+                    <Redirect push to={{
+                            pathname: '/search',
+                            search: '?needle=' + this.state.query
+                        }}/>
+                }
+            </div>
+        )
     }
 }
 
@@ -46,11 +71,14 @@ function SearchBox(props) {
     const enterKeyCode = 13;
     const onKeyPress = (e) => {
         if (e.which === enterKeyCode) {
-            props.getSearch(e.currentTarget.value);
+            props.redirectSearch(e.currentTarget.value);
         }
     };
 
-    return (<div>
-        <input id="search_box" placeholder="identifier search" autoComplete="off" onKeyPress={onKeyPress}></input>
-    </div>)
+    return <input 
+                    id="search_box" 
+                    placeholder="identifier search" 
+                    autoComplete="off" 
+                    onKeyPress={onKeyPress}>
+            </input>;
 }
