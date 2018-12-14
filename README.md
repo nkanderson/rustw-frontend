@@ -9,3 +9,5 @@ To run the json-server (the mocked backend):
 
 To run the webpack dev server (for the frontend):
 `npm run start:app`
+
+Adding a trivial change for testing.
